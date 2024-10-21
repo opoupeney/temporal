@@ -2,7 +2,7 @@ databases:
 - name: temporal-db
   databaseName: temporal
   user: temporal
-  plan: basic-1gb
+  plan: basic-256mb
   region: oregon
 
 envVarGroups:
@@ -24,6 +24,11 @@ services:
   name: temporal-elasticsearch
   autoDeploy: false
   plan: Starter
+  scaling:
+    minInstances: 1
+    maxInstances: 3
+    targetMemoryPercent: 80
+    targetCPUPercent: 80
   region: oregon
   env: docker
   dockerfilePath: ./temporal-cluster/elasticsearch/Dockerfile
