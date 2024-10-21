@@ -24,11 +24,6 @@ services:
   name: temporal-elasticsearch
   autoDeploy: false
   plan: Starter
-  scaling:
-    minInstances: 1
-    maxInstances: 3
-    targetMemoryPercent: 80
-    targetCPUPercent: 80
   region: oregon
   env: docker
   dockerfilePath: ./temporal-cluster/elasticsearch/Dockerfile
@@ -62,11 +57,6 @@ services:
   region: oregon
   env: docker
   dockerfilePath: ./temporal-cluster/server/auto-setup/Dockerfile
-  scaling:
-    minInstances: 1
-    maxInstances: 3
-    targetMemoryPercent: 80
-    targetCPUPercent: 80
   envVars:
   - fromGroup: temporal-shared
   - key: SERVICES
