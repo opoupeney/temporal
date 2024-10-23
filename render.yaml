@@ -298,3 +298,18 @@ services:
       name: temporal-frontend
       type: pserv
       property: host
+- type: pserv
+  autoDeploy: false
+  name: testapp-worker
+  repo: https://github.com/opoupeney/testapp
+  plan: Starter
+  region: oregon
+  env: go
+  buildCommand: go build worker/main.go
+  startCommand: ./main
+  envVars:
+  - key: TEMPORAL_CLUSTER_HOST
+    fromService:
+      name: temporal-frontend
+      type: pserv
+      property: host
