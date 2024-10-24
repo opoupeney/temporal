@@ -298,7 +298,7 @@ services:
       name: temporal-frontend
       type: pserv
       property: host
-- type: pserv
+- type: worker
   autoDeploy: false
   name: testapp-worker
   repo: https://github.com/opoupeney/testapp
@@ -313,7 +313,7 @@ services:
       name: temporal-frontend
       type: pserv
       property: host
-- type: pserv
+- type: worker
   autoDeploy: false
   name: testapp-main
   repo: https://github.com/opoupeney/testapp
